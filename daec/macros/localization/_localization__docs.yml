@@ -1,0 +1,23 @@
+version: 2
+
+macros:
+  - name: convert_currency
+    description: |
+      Allows converting from a monetary value from its origin currency to a
+      destiny one, by using a given mapping.
+    arguments:
+      - name: amount_field
+        description: field in which the amount is located.
+      - name: origin_currency_field
+        description: field displaying the 3-digit origin currency code.
+      - name: exchange_rates_dict
+        description: dictionary containing the different relations between currencies.
+      - name: destination_currency
+        description: (optional, 'USD') 3-digit destination currency.
+
+  - name: get_country_name_by_iso_code
+    description: |
+      Obtains the full name of a given 2-digit ISO code of a country
+    arguments:
+      - name: iso_code_country_field
+        description: Field containing the 2-digit ISO code.

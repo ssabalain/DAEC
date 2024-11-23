@@ -1,0 +1,8 @@
+version: 2
+
+macros:
+  - name: get_iso_codes_mapping
+    description: |
+      Dictionary containing the mapping between the countries 2-digit ISO code
+      and their full name
+

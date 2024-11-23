@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_globepay__transactions
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+      - name: has_chargeback
+        data_tests:
+          -  not_null
+      - name: country_of_origin
+        data_tests:
+          -  not_null

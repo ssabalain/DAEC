@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_transaction__created
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+
+  - name: dim_transactions
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique

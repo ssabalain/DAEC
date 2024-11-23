@@ -1,5 +1,5 @@
 daec:
-  target: dev
+  target: "{{ env_var('DBT_TARGET') }}"
   outputs:
     dev:
       type: postgres
@@ -8,5 +8,14 @@ daec:
       pass: postgres
       port: 5432
       dbname: postgres
-      schema: postgres
+      schema: dbt_dev
+      threads: 1
+    prod:
+      type: postgres
+      host: postgres
+      user: postgres
+      pass: postgres
+      port: 5432
+      dbname: postgres
+      schema: dbt_prod
       threads: 1

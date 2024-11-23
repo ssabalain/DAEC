@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres
+    image: postgres:12.17
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+       - ./data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  dbt:
+    container_name: dbt
+    build: .
+    platform: linux/amd64
+    environment:
+      DBT_PROFILES_DIR: /usr/app/dbt/daec
+      DBT_PROJECT_DIR: /usr/app/dbt/daec
+      DBT_TARGET: dev
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/app/dbt
+    command: ["sleep", "infinity"]
+    restart: always

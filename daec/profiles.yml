@@ -8,7 +8,7 @@ daec:
       pass: postgres
       port: 5432
       dbname: postgres
-      schema: dbt_dev
+      schema: dbt_{{ env_var('DBT_TARGET') }}
       threads: 1
     prod:
       type: postgres
@@ -17,5 +17,5 @@ daec:
       pass: postgres
       port: 5432
       dbname: postgres
-      schema: dbt_prod
+      schema: dbt_{{ env_var('DBT_TARGET') }}
       threads: 1

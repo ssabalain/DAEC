@@ -1,0 +1,12 @@
+daec:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      user: postgres
+      pass: postgres
+      port: 5432
+      dbname: postgres
+      schema: postgres
+      threads: 1

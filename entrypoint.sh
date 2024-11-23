@@ -3,7 +3,6 @@
 SERVERS_JSON_PATH="/pgadmin4/servers.json"
 PGPASSFILE="$HOME/.pgpass"
 
-# Create the .pgpass file for password
 echo "Creating pgpass file at $PGPASSFILE"
 echo "${POSTGRES_HOST}:*:*:${POSTGRES_USER}:${POSTGRES_PASSWORD}" > "$PGPASSFILE"
 chmod 600 $PGPASSFILE

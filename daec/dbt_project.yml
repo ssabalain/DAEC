@@ -32,4 +32,7 @@ models:
       payments:
         +schema: payments
         +materialized: table
+    marts_support:
+      +schema: marts_support
+      +materialized: table
 

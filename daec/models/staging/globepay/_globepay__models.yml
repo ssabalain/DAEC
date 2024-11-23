@@ -8,7 +8,11 @@ models:
           - unique
       - name: has_chargeback
         data_tests:
-          -  not_null
+          - not_null
       - name: country_of_origin
         data_tests:
-          -  not_null
+          - not_null
+      - name: transaction_state
+        data_tests:
+          - accepted_values:
+              values: ['ACCEPTED', 'DECLINED']

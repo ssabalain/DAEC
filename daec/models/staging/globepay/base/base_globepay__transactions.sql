@@ -15,9 +15,9 @@ renamed as (
     amount as amount_local_currency,
 
     {{ convert_currency(
-      amount_field = 'amount',
-      origin_currency_field = 'currency',
-      exchange_rates_dict = 'rates'
+        amount_field = 'amount',
+        origin_currency_field = 'currency',
+        exchange_rates_dict = 'rates'
     ) }} as amount_usd,
 
     {{ get_country_name_by_iso_code(

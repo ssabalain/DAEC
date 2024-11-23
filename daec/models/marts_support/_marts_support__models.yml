@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: sup_transaction_details
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
